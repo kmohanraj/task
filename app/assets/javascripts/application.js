@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/datepicker
 //= require tether.min
 //= require bootstrap.min
 //= require toastr.min

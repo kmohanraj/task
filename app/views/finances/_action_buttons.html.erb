@@ -14,19 +14,13 @@
     <div class="col-md-3">
       <%= link_to "Today", finances_path(bill: "today"), class: "btn btn-outline-primary btn-md" %>
     </div>
-     <!-- <div class="row"> -->
-           <!--  <div class="input-field col s6">
-              <i class="material-icons prefix">Custom Date</i>
-              <input type="date" class="datepicker" name="day">
-            </div>
-          </div> -->
     <div class="col-4">
       <%= form_tag(finances_path, method: :get) do %>
-        <%= text_field_tag :bill, params[:bill], class: 'datepicker' %>
+        <%#= text_field_tag :bill, params[:bill], class: 'datepicker' %>
+        <%= date_field_tag :bill, params[:bill] %>
         <%= submit_tag 'Search', name: nil ,class: "btn btn-outline-primary btn-md" %>
       <% end %>
     </div>       
-    <!-- </div> -->
 
 </div>
 
@@ -50,37 +44,3 @@
   </div>
 </div>
 
-
-<script>
-  $(function() {
-    // Add click event binding to `Save search` link
-    $("#save_search").on("click", function(event) {
-        event.preventDefault(); // don't trigger default
-
-        // get the value inside the text field
-        var name = $("#search_name").val();
-
-        $.post('/index', { search_name: name }, function(data) {
-            // log the result from the server, or whatever...
-            console.log(data);
-        });
-    });
-});
-
-</script>
-
-<script>
-  JQuery(document).ready(function(){
-  JQuery('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
-  });
-})(JQuery);
-</script>
-
-
-<script>
-  $(function() {
-    $('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
-});
-</script>
